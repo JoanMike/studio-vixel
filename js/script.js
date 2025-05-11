@@ -85,3 +85,20 @@ function closeModal() {
 document.addEventListener('keydown', e => e.key === 'Escape' && !videoModal.classList.contains('hidden') && closeModal());
 videoModal.addEventListener('click', e => e.target === videoModal && closeModal());
 document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+// Función para cargar correctamente los embeds de Instagram
+function loadInstagramEmbeds() {
+    // Esperar a que se cargue el script de Instagram
+    if (window.instgrm) {
+        window.instgrm.Embeds.process();
+    } else {
+        // Intentar de nuevo en 500ms si el script de Instagram aún no está cargado
+        setTimeout(loadInstagramEmbeds, 500);
+    }
+}
+
+// Cargar los embeds cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', loadInstagramEmbeds);
+
+// También cargar los embeds cuando la ventana haya cargado por completo
+window.addEventListener('load', loadInstagramEmbeds);
