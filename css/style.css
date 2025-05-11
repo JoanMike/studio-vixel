@@ -1,0 +1,675 @@
+/* === BASE STYLES (DARK MODE - ORIGINAL) === */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f172a;
+    /* slate-900 */
+    color: #e2e8f0;
+    /* slate-200 (default body text) */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Default heading color for dark mode, can be overridden by utility classes */
+h1,
+h2,
+h3:not(.text-blue-500):not(.text-purple-500):not(.text-white),
+/* Exclude service card titles that have specific colors */
+h4,
+h5,
+h6 {
+    color: #ffffff;
+}
+
+/* Gradient Text Effects */
+.gradient-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 100%;
+    transition: background-image 0.5s ease;
+    display: inline-block;
+}
+
+.gradient-text-main {
+    background-image: linear-gradient(135deg, #60a5fa, #3b82f6, #2563eb);
+    /* Gradiente azul para modo oscuro: blue-400 -> blue-500 -> blue-600 */
+}
+
+/* Estilos para animar los span dentro del texto con gradiente */
+.gradient-text span {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: inherit;
+    display: inline-block;
+}
+
+/* Mantener animación reveal-text */
+.reveal-text.gradient-text span {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: reveal 0.8s forwards;
+}
+
+/* Text Utility Classes (Dark Mode Defaults) */
+.text-main-color {
+    color: #ffffff;
+}
+
+/* For primary text like main titles */
+.text-secondary-color {
+    color: #cbd5e1;
+    /* slate-300 - for descriptions, sub-text */
+}
+
+/* Custom Scrollbar - Dark */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e293b;
+    /* slate-800 */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #475569;
+    /* slate-600 */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+    /* slate-500 */
+}
+
+/* Navigation - Dark Mode Defaults */
+.nav-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, backdrop-filter 0.3s ease;
+}
+
+.nav-default-bg {
+    background-color: rgba(15, 23, 42, 0.45);
+    /* Increased transparency */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* Subtle border */
+}
+
+.nav-scrolled-bg {
+    background-color: rgba(15, 23, 42, 0.55);
+    /* Still somewhat transparent when scrolled */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 20px -1px rgba(0, 0, 0, 0.2), 0 2px 10px -1px rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Nav links are white by default via Tailwind's text-white on FMG Edits, and direct styling on others */
+#navbar nav a {
+    color: #e2e8f0;
+    /* slate-200 */
+}
+
+/* Default nav link color */
+#navbar nav a:hover {
+    color: #60a5fa;
+    /* blue-400 */
+}
+
+#navbar nav a.bg-blue-600 {
+    color: #ffffff;
+}
+
+/* Contact button text */
+
+#mobile-menu {
+    background-color: rgba(30, 41, 59, 0.95);
+    /* slate-800/95 */
+}
+
+#mobile-menu a {
+    color: #e2e8f0;
+}
+
+#mobile-menu a:hover {
+    background-color: #334155;
+    /* slate-700 */
+}
+
+#mobile-menu a.bg-blue-600 {
+    color: #ffffff;
+}
+
+#theme-toggle,
+#theme-toggle-mobile {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    color: #94a3b8;
+    /* slate-400 */
+    transition: color 0.3s ease;
+}
+
+#theme-toggle:hover,
+#theme-toggle-mobile:hover {
+    color: #e2e8f0;
+    /* slate-200 */
+}
+
+#mobile-menu-button svg {
+    stroke: #e2e8f0;
+    /* slate-200 */
+}
+
+/* Site logo/title styling - always visible on both themes */
+#navbar .text-white {
+    color: #ffffff;
+    /* Blanco para modo oscuro (ya está por defecto en .text-white) */
+    transition: color 0.3s ease;
+}
+
+/* Hero Animation (Theme-agnostic) */
+.reveal-text span {
+    opacity: 0;
+    transform: translateY(20px);
+    display: inline-block;
+    animation: reveal 0.8s forwards;
+}
+
+@keyframes reveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pulse-button {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+    }
+
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+    }
+}
+
+/* Section Backgrounds - Dark Mode Defaults */
+.section-bg-dark {
+    background-color: #1e293b;
+    /* slate-800 */
+}
+
+.section-bg-darker {
+    background-color: #0f172a;
+    /* slate-900 */
+}
+
+/* Hero section has its own gradient background, which is its dark mode default */
+#hero {
+    background-image: linear-gradient(to bottom right, #0f172a, #1e293b, #2563eb);
+    position: relative;
+    overflow: hidden;
+    /* Para contener los elementos animados dentro del hero */
+}
+
+/* Hero Animation Background */
+.hero-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Para que no interfiera con los clicks */
+}
+
+.hero-circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hero-circles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(109, 173, 250, 0.281);
+    /* blue-400 con baja opacidad */
+    animation: hero-animate 25s linear infinite;
+    bottom: -150px;
+    border-radius: 50%;
+}
+
+.hero-circles li:nth-child(1) {
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+.hero-circles li:nth-child(2) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.hero-circles li:nth-child(3) {
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.hero-circles li:nth-child(4) {
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.hero-circles li:nth-child(5) {
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.hero-circles li:nth-child(6) {
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.hero-circles li:nth-child(7) {
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.hero-circles li:nth-child(8) {
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.hero-circles li:nth-child(9) {
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.hero-circles li:nth-child(10) {
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+@keyframes hero-animate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 30%;
+    }
+
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+/* Hero subtitle */
+
+/* Card Backgrounds - Dark Mode Defaults */
+.content-card-bg {
+    background-color: #334155;
+    /* slate-700 */
+}
+
+/* For portfolio items, contact form card */
+.service-card-default-bg {
+    background-color: #1e293b;
+    /* slate-800 */
+}
+
+/* For Básico, Premium service cards */
+/* Estándar service card (.card-bg-accent) uses Tailwind bg-blue-700, text-white for dark mode */
+.about-image-placeholder {
+    /* Dark Mode Default */
+    background-color: #2563eb;
+    /* blue-600 */
+    color: white;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0 auto 2rem auto;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Form Inputs - Dark Mode Defaults */
+.form-input-bg {
+    background-color: #475569;
+    /* slate-600 */
+    border: 1px solid #64748b;
+    /* slate-500 */
+    color: #f8fafc;
+    /* slate-50 */
+}
+
+.form-input-bg::placeholder {
+    color: #94a3b8;
+    /* slate-400 */
+}
+
+/* Modal - Dark Mode Defaults */
+.glassmorphism-bg {
+    background: rgba(30, 41, 59, 0.5);
+    /* slate-800 with opacity */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    /* slate-700 with opacity */
+}
+
+.modal-text-content {
+    color: #e2e8f0;
+    /* slate-200 */
+}
+
+/* Modal title and description */
+#videoModal .close-button {
+    color: #9ca3af;
+    /* gray-400 */
+}
+
+/* Modal close X */
+#videoModal .close-button:hover {
+    color: #ffffff;
+}
+
+/* Footer - Dark Mode Default */
+footer {
+    color: #94a3b8;
+    /* slate-400 */
+}
+
+/* === LIGHT MODE OVERRIDES === */
+body.light-mode {
+    background-color: #f1f5f9;
+    /* slate-100 */
+    color: #0f172a;
+    /* slate-900 (default body text) */
+}
+
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3:not(.text-blue-500):not(.text-purple-500):not(.text-white),
+body.light-mode h4,
+body.light-mode h5,
+body.light-mode h6 {
+    color: #1e293b;
+    /* slate-800 */
+}
+
+body.light-mode .text-main-color {
+    color: #1e293b;
+    /* slate-800 */
+}
+
+body.light-mode .text-secondary-color {
+    color: #475569;
+    /* slate-600 */
+}
+
+body.light-mode ::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    /* slate-200 */
+}
+
+body.light-mode ::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    /* slate-400 */
+}
+
+body.light-mode ::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+    /* slate-500 */
+}
+
+body.light-mode .nav-default-bg {
+    background-color: rgba(241, 245, 249, 0.45);
+    /* Increased transparency */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /* Subtle border */
+}
+
+body.light-mode .nav-scrolled-bg {
+    background-color: rgba(241, 245, 249, 0.55);
+    /* Still somewhat transparent when scrolled */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 20px -1px rgba(0, 0, 0, 0.07), 0 2px 10px -1px rgba(0, 0, 0, 0.04);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode #navbar nav a {
+    color: #1e293b;
+    /* slate-800 */
+}
+
+body.light-mode #navbar nav a:hover {
+    color: #2563eb;
+    /* blue-600 */
+}
+
+body.light-mode #navbar nav a.bg-blue-600 {
+    background-color: #2563eb;
+    color: #f1f5f9;
+}
+
+body.light-mode #navbar nav a.bg-blue-600:hover {
+    background-color: #1d4ed8;
+}
+
+body.light-mode #mobile-menu {
+    background-color: rgba(226, 232, 240, 0.95);
+    /* slate-200/95 */
+}
+
+body.light-mode #mobile-menu a {
+    color: #1e293b;
+}
+
+body.light-mode #mobile-menu a:hover {
+    background-color: #d1d5db;
+    /* gray-300 */
+}
+
+body.light-mode #mobile-menu a.bg-blue-600 {
+    background-color: #2563eb;
+    color: #f1f5f9;
+}
+
+body.light-mode #mobile-menu a.bg-blue-600:hover {
+    background-color: #1d4ed8;
+}
+
+body.light-mode #theme-toggle,
+body.light-mode #theme-toggle-mobile {
+    color: #475569;
+    /* slate-600 */
+}
+
+body.light-mode #theme-toggle:hover,
+body.light-mode #theme-toggle-mobile:hover {
+    color: #0f172a;
+    /* slate-900 */
+}
+
+body.light-mode #mobile-menu-button svg {
+    stroke: #1e293b;
+    /* slate-800 */
+}
+
+body.light-mode .section-bg-dark {
+    background-color: #e2e8f0;
+    /* slate-200 */
+}
+
+body.light-mode .section-bg-darker {
+    background-color: #f8fafc;
+    /* slate-50 */
+}
+
+body.light-mode #hero {
+    background-image: linear-gradient(to bottom right, #e0e7ff, #c7d2fe, #a5b4fc);
+}
+
+body.light-mode .hero-circles li {
+    background: rgba(59, 131, 246, 0.199);
+    /* blue-500 con baja opacidad para modo claro */
+}
+
+body.light-mode #hero .text-slate-300 {
+    color: #475569;
+    /* slate-600 */
+}
+
+body.light-mode .content-card-bg,
+body.light-mode .service-card-default-bg {
+    background-color: #ffffff;
+    /* white */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    /* Softer shadow */
+}
+
+body.light-mode .card-bg-accent {
+    /* Estándar service card */
+    background-color: #3b82f6;
+    /* blue-500 */
+    color: #f1f5f9;
+    /* slate-100 */
+}
+
+body.light-mode .card-bg-accent .text-slate-200 {
+    color: #e0e7ff;
+}
+
+body.light-mode .card-bg-accent .text-yellow-300 {
+    color: #facc15;
+}
+
+body.light-mode .about-image-placeholder {
+    background-color: #3b82f6;
+    color: #f1f5f9;
+}
+
+body.light-mode .form-input-bg {
+    background-color: #f8fafc;
+    /* slate-50 */
+    border-color: #cbd5e1;
+    /* slate-300 */
+    color: #0f172a;
+    /* slate-900 */
+}
+
+body.light-mode .form-input-bg::placeholder {
+    color: #94a3b8;
+    /* slate-400 */
+}
+
+body.light-mode .form-input-bg:focus {
+    border-color: #2563eb;
+}
+
+body.light-mode .glassmorphism-bg {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+body.light-mode .modal-text-content {
+    color: #1f2937;
+    /* slate-800 */
+}
+
+body.light-mode #videoModal .close-button {
+    color: #4b5563;
+    /* gray-600 */
+}
+
+body.light-mode #videoModal .close-button:hover {
+    color: #1f2937;
+}
+
+body.light-mode footer {
+    color: #475569;
+    /* slate-600 */
+}
+
+body.light-mode #navbar .text-white {
+    color: #1e293b;
+    /* slate-800 para mejor visibilidad en modo claro */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    /* Sombra sutil para mejorar legibilidad */
+}
+
+body.light-mode .gradient-text-main {
+    background-image: linear-gradient(135deg, #3b82f6, #2563eb, #1e40af);
+    /* Gradiente azul para modo claro: blue-500 -> blue-600 -> blue-800 */
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}

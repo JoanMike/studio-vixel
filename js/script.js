@@ -1,0 +1,87 @@
+AOS.init({ duration: 800, once: false });
+
+const themeToggleButtons = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
+const body = document.body;
+const sunIconClass = 'fa-sun';
+const moonIconClass = 'fa-moon';
+const navbar = document.getElementById('navbar');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+
+function applyTheme(theme) {
+    const isLight = theme === 'light';
+    body.classList.toggle('light-mode', isLight);
+    themeToggleButtons.forEach(button => {
+        const icon = button.querySelector('i');
+        icon.classList.toggle(sunIconClass, !isLight);
+        icon.classList.toggle(moonIconClass, isLight);
+    });
+    localStorage.setItem('theme', theme);
+}
+
+themeToggleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        applyTheme(body.classList.contains('light-mode') ? 'dark' : 'light');
+    });
+});
+
+const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+applyTheme(savedTheme);
+
+if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetElement = document.querySelector(this.getAttribute('href'));
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+        if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+        }
+    });
+});
+
+window.onscroll = function () {
+    const isScrolled = window.scrollY > 50;
+    navbar.classList.toggle('nav-default-bg', !isScrolled);
+    navbar.classList.toggle('nav-scrolled-bg', isScrolled);
+};
+
+const videoModal = document.getElementById('videoModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalDescription = document.getElementById('modalDescription');
+const modalImage = document.getElementById('modalImage');
+
+function openModal(videoId, title, description, imageUrl) {
+    if (!videoModal || !modalTitle || !modalDescription || !modalImage) return;
+    modalTitle.textContent = title;
+    modalDescription.textContent = description;
+    modalImage.src = imageUrl;
+    modalImage.onerror = () => {
+        modalImage.src = `https://placehold.co/1280x720/${body.classList.contains('light-mode') ? 'E2E8F0' : '1F2937'}/FFFFFF?text=Error+Al+Cargar+Video`;
+    };
+    videoModal.classList.remove('hidden');
+    setTimeout(() => {
+        videoModal.classList.remove('opacity-0');
+        videoModal.querySelector('.transform').classList.remove('scale-95');
+    }, 10);
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    if (!videoModal) return;
+    videoModal.classList.add('opacity-0');
+    videoModal.querySelector('.transform').classList.add('scale-95');
+    setTimeout(() => videoModal.classList.add('hidden'), 300);
+    document.body.style.overflow = 'auto';
+}
+
+document.addEventListener('keydown', e => e.key === 'Escape' && !videoModal.classList.contains('hidden') && closeModal());
+videoModal.addEventListener('click', e => e.target === videoModal && closeModal());
+document.getElementById('currentYear').textContent = new Date().getFullYear();

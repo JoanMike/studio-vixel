@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francisco Maldonado García - Editor Audiovisual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="text-gray-100">
+    <header id="navbar" class="nav-sticky nav-default-bg backdrop-blur-md py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-white">Studio Vixel</a>
+            <nav class="hidden md:flex space-x-4 items-center">
+                <a href="#hero" class="transition-colors">Inicio</a>
+                <a href="#about-me" class="transition-colors">Sobre Mí</a>
+                <a href="#portfolio" class="transition-colors">Portfolio</a>
+                <a href="#services" class="transition-colors">Servicios</a>
+                <a href="#contact"
+                    class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">Contacto</a>
+                <button id="theme-toggle" title="Toggle light/dark mode">
+                    <i class="fas fa-sun"></i> </button>
+            </nav>
+            <div class="md:hidden flex items-center">
+                <button id="theme-toggle-mobile" title="Toggle light/dark mode" class="mr-4">
+                    <i class="fas fa-sun"></i> </button>
+                <button id="mobile-menu-button" class="focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#hero" class="block py-3 px-6 text-center transition-colors">Inicio</a>
+            <a href="#about-me" class="block py-3 px-6 text-center transition-colors">Sobre Mí</a>
+            <a href="#portfolio" class="block py-3 px-6 text-center transition-colors">Portfolio</a>
+            <a href="#services" class="block py-3 px-6 text-center transition-colors">Servicios</a>
+            <a href="#contact"
+                class="block py-3 px-6 text-center bg-blue-600 hover:bg-blue-700 text-white transition-colors">Contacto</a>
+        </div>
+    </header>
+
+    <section id="hero" class="min-h-screen flex items-center justify-center text-white pt-20 md:pt-0">
+        <!-- Agregamos el código de animación de fondo -->
+        <div class="hero-area">
+            <ul class="hero-circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div data-aos="fade-up" data-aos-delay="100">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-4 reveal-text gradient-text gradient-text-main">
+                    <span style="animation-delay: 0.2s;">Francisco </span>
+                    <span style="animation-delay: 0.4s;">Maldonado </span>
+                    <span style="animation-delay: 0.6s;">García</span>
+                </h1>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300">
+                <p class="text-xl md:text-2xl mb-8 reveal-text text-slate-300"> <span
+                        style="animation-delay: 0.8s;">Editor </span>
+                    <span style="animation-delay: 1s;">Audiovisual </span>
+                    <span style="animation-delay: 1.2s;">Potenciando </span>
+                    <span style="animation-delay: 1.4s;">tus </span>
+                    <span style="animation-delay: 1.6s;">Redes </span>
+                    <span style="animation-delay: 1.8s;">Sociales.</span>
+                </p>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="500">
+                <a href="#portfolio"
+                    class="pulse-button bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg text-lg transition-transform duration-300 inline-block">
+                    Ver Mi Trabajo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-me" class="py-16 md:py-24 section-bg-darker">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-main-color" data-aos="fade-up">Un Poco Sobre Mí</h2>
+            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="about-image-placeholder" data-aos="zoom-in" data-aos-delay="200">
+                    FMG
+                </div>
+                <p class="text-lg md:text-xl mb-6 text-secondary-color" data-aos="fade-up" data-aos-delay="250">
+                    ¡Hola! Soy Francisco Maldonado García, un apasionado editor audiovisual con la misión de dar vida a
+                    tus ideas. Con experiencia en la creación de contenido dinámico para redes sociales, me especializo
+                    en transformar metraje crudo en historias visuales que capturan, enganchan y convierten.
+                </p>
+                <p class="text-lg md:text-xl text-secondary-color" data-aos="fade-up" data-aos-delay="300">
+                    Mi enfoque se centra en entender tu visión y tu audiencia para producir videos que no solo se vean
+                    increíbles, sino que también cumplan tus objetivos. Desde cortes rápidos y tendencias virales para
+                    TikTok e Instagram Reels, hasta narrativas más elaboradas, estoy aquí para ayudarte a brillar en el
+                    mundo digital.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-16 md:py-24 section-bg-dark">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-main-color" data-aos="fade-up">Mi Portfolio</h2>
+            <p class="text-center text-secondary-color mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Edición de video reels dinámicos y atractivos para Instagram, TikTok y otras plataformas. Cada proyecto
+                es una historia contada con creatividad y precisión.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="content-card-bg rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer group"
+                    data-aos="zoom-in"
+                    onclick="openModal('video1', 'Título del Video Reel 1', 'Descripción detallada del proyecto de video reel 1. Enfocado en...', 'https://placehold.co/800x450/3B82F6/FFFFFF?text=Video+Reel+1')">
+                    <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Reel+Instagram"
+                        alt="[Imagen de Portada de Video Reel para Instagram]"
+                        class="w-full h-64 object-cover group-hover:opacity-80 transition-opacity">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-main-color">Reel para Instagram</h3>
+                        <p class="text-secondary-color text-sm">Edición dinámica y moderna.</p>
+                    </div>
+                </div>
+                <div class="content-card-bg rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer group"
+                    data-aos="zoom-in" data-aos-delay="100"
+                    onclick="openModal('video2', 'Video Promocional TikTok', 'Este video fue creado para una campaña de TikTok, buscando maximizar el engagement.', 'https://placehold.co/800x450/10B981/FFFFFF?text=Video+Reel+2')">
+                    <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Reel+TikTok"
+                        alt="[Imagen de Portada de Video Reel para TikTok]"
+                        class="w-full h-64 object-cover group-hover:opacity-80 transition-opacity">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-main-color">Reel para TikTok</h3>
+                        <p class="text-secondary-color text-sm">Contenido viral y creativo.</p>
+                    </div>
+                </div>
+                <div class="content-card-bg rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer group"
+                    data-aos="zoom-in" data-aos-delay="200"
+                    onclick="openModal('video3', 'Reel Corporativo', 'Un reel elegante para presentar servicios corporativos en redes sociales.', 'https://placehold.co/800x450/EC4899/FFFFFF?text=Video+Reel+3')">
+                    <img src="https://placehold.co/600x400/EC4899/FFFFFF?text=Reel+Corporativo"
+                        alt="[Imagen de Portada de Video Reel Corporativo]"
+                        class="w-full h-64 object-cover group-hover:opacity-80 transition-opacity">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-main-color">Reel Corporativo</h3>
+                        <p class="text-secondary-color text-sm">Profesional y pulido.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-16 md:py-24 section-bg-darker">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-main-color" data-aos="fade-up">Servicios de Edición
+            </h2>
+            <p class="text-center text-secondary-color mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Planes flexibles adaptados a tus necesidades para crear contenido audiovisual impactante.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="service-card-default-bg p-8 rounded-xl shadow-2xl transform hover:scale-105 hover:shadow-blue-500/30 transition-all duration-300 group"
+                    data-aos="fade-up" data-aos-delay="50">
+                    <h3 class="text-3xl font-semibold mb-4 text-blue-400">Básico</h3>
+                    <p class="text-secondary-color mb-6">Ideal para empezar y dar un toque profesional a tus videos
+                        cortos.</p>
+                    <ul class="text-secondary-color space-y-2 mb-8">
+                        <li><span class="text-blue-400 mr-2">✓</span> Edición de hasta X videos/mes</li>
+                        <li><span class="text-blue-400 mr-2">✓</span> Corrección de color básica</li>
+                        <li><span class="text-blue-400 mr-2">✓</span> Música de stock (opciones limitadas)</li>
+                        <li><span class="text-blue-400 mr-2">✓</span> Entrega en X días</li>
+                    </ul>
+                    <p class="text-4xl font-bold text-main-color mb-6 group-hover:text-blue-400 transition-colors">
+                        [PRECIO]</p>
+                    <a href="#contact"
+                        class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">Contratar
+                        Básico</a>
+                </div>
+
+                <div class="card-bg-accent bg-blue-700 text-white p-8 rounded-xl shadow-2xl transform hover:scale-105 hover:shadow-blue-400/50 transition-all duration-300 group relative overflow-hidden"
+                    data-aos="fade-up" data-aos-delay="150">
+                    <div
+                        class="absolute -top-4 -right-4 bg-yellow-400 text-slate-900 px-3 py-1 text-sm font-bold rounded-bl-lg transform rotate-6">
+                        Popular</div>
+                    <h3 class="text-3xl font-semibold mb-4 text-white">Estándar</h3>
+                    <p class="text-slate-200 mb-6">El paquete más popular, balance perfecto entre calidad y
+                        funcionalidades.</p>
+                    <ul class="text-slate-200 space-y-2 mb-8">
+                        <li><span class="text-yellow-300 mr-2">✓</span> Edición de hasta Y videos/mes</li>
+                        {/* ... other list items ... */}
+                    </ul>
+                    <p class="text-4xl font-bold text-white mb-6">[PRECIO]</p> <a href="#contact"
+                        class="block w-full text-center bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-semibold py-3 px-6 rounded-lg transition-colors">Contratar
+                        Estándar</a>
+                </div>
+
+                <div class="service-card-default-bg p-8 rounded-xl shadow-2xl transform hover:scale-105 hover:shadow-purple-500/30 transition-all duration-300 group"
+                    data-aos="fade-up" data-aos-delay="250">
+                    <h3 class="text-3xl font-semibold mb-4 text-purple-400">Premium</h3>
+                    <p class="text-secondary-color mb-6">Para quienes buscan el máximo impacto y una producción de alta
+                        gama.</p>
+                    <ul class="text-secondary-color space-y-2 mb-8">
+                        <li><span class="text-purple-400 mr-2">✓</span> Edición de hasta Z videos/mes</li>
+                        {/* ... other list items ... */}
+                    </ul>
+                    <p class="text-4xl font-bold text-main-color mb-6 group-hover:text-purple-400 transition-colors">
+                        [PRECIO]</p>
+                    <a href="#contact"
+                        class="block w-full text-center bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">Contratar
+                        Premium</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 md:py-24 section-bg-dark">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-main-color" data-aos="fade-up">¡Hablemos de tu
+                Proyecto!</h2>
+            <div class="max-w-lg mx-auto content-card-bg p-8 rounded-xl shadow-2xl" data-aos="fade-up"
+                data-aos-delay="100">
+                <form action="#" method="POST">
+                    <div class="mb-6">
+                        <label for="name" class="block mb-2 text-sm font-medium text-secondary-color">Nombre
+                            Completo</label>
+                        <input type="text" id="name" name="name"
+                            class="form-input-bg w-full p-3 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block"
+                            placeholder="Tu Nombre" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block mb-2 text-sm font-medium text-secondary-color">Correo
+                            Electrónico</label>
+                        <input type="email" id="email" name="email"
+                            class="form-input-bg w-full p-3 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block"
+                            placeholder="tu@correo.com" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block mb-2 text-sm font-medium text-secondary-color">Mensaje</label>
+                        <textarea id="message" name="message" rows="4"
+                            class="form-input-bg w-full p-3 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block"
+                            placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-3 text-center transition-colors">Enviar
+                        Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="section-bg-darker py-8 text-center">
+        <div class="container mx-auto px-6">
+            <p>© <span id="currentYear"></span> Francisco Maldonado García. Todos los derechos reservados.</p>
+            <p class="text-sm">Diseño web con <span class="text-red-500">♥</span></p>
+        </div>
+    </footer>
+
+    <div id="videoModal"
+        class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-[100] hidden transition-opacity duration-300 opacity-0">
+        <div
+            class="glassmorphism-bg p-6 md:p-8 rounded-xl shadow-2xl max-w-3xl w-full relative transform scale-95 transition-transform duration-300">
+            <button onclick="closeModal()" class="close-button absolute top-4 right-4 text-2xl z-10">
+                ×
+            </button>
+            <h3 id="modalTitle" class="text-2xl md:text-3xl font-bold mb-4 modal-text-content">Título del Video</h3>
+            <div class="aspect-w-16 aspect-h-9 mb-4 bg-black rounded-lg">
+                <img id="modalImage" src="https://placehold.co/1280x720/1f2937/FFFFFF?text=Video+Placeholder"
+                    alt="[Video Placeholder]" class="rounded-lg object-contain w-full h-full">
+            </div>
+            <p id="modalDescription" class="modal-text-content text-sm md:text-base">Descripción del video aquí.</p>
+        </div>
+    </div>
+
+    <!-- Script de AOS y enlace al archivo JS externo -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
