@@ -97,8 +97,65 @@ function loadInstagramEmbeds() {
     }
 }
 
+// Función para cargar correctamente los embeds de TikTok
+function loadTikTokEmbeds() {
+    if (window.TikTokEmbed) {
+        // Si el objeto TikTokEmbed existe, intenta cargar los embeds
+        try {
+            window.TikTokEmbed.revalidate();
+        } catch (e) {
+            console.log("TikTok embed revalidation error:", e);
+        }
+    } else if (document.querySelector('.tiktok-embed')) {
+        // Si el script aún no está completamente cargado pero el elemento existe
+        setTimeout(loadTikTokEmbeds, 1000);
+    }
+}
+
+// Función para verificar si los embeds de TikTok están cargados
+function checkTikTokEmbeds() {
+    const tiktokEmbeds = document.querySelectorAll('.tiktok-embed');
+
+    if (tiktokEmbeds.length > 0) {
+        // Verificar si los embeds están vacíos (sin contenido generado por TikTok)
+        let allEmpty = true;
+        tiktokEmbeds.forEach(embed => {
+            // Si el embed tiene contenido más allá del mínimo original, no está vacío
+            if (embed.children.length > 1 || embed.innerHTML.includes('iframe')) {
+                allEmpty = false;
+            }
+        });
+
+        // Si todos los embeds están vacíos, recargar el script de TikTok
+        if (allEmpty) {
+            const oldScript = document.querySelector('script[src*="tiktok.com/embed.js"]');
+            if (oldScript) oldScript.remove();
+
+            const newScript = document.createElement('script');
+            newScript.async = true;
+            newScript.src = 'https://www.tiktok.com/embed.js';
+            document.body.appendChild(newScript);
+
+            // Intentar de nuevo en un momento
+            setTimeout(loadTikTokEmbeds, 1500);
+        }
+    }
+}
+
 // Cargar los embeds cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', loadInstagramEmbeds);
+document.addEventListener('DOMContentLoaded', function () {
+    loadInstagramEmbeds();
+    loadTikTokEmbeds();
+
+    // Verificar después de 3 segundos si los embeds de TikTok se cargaron correctamente
+    setTimeout(checkTikTokEmbeds, 3000);
+});
 
 // También cargar los embeds cuando la ventana haya cargado por completo
-window.addEventListener('load', loadInstagramEmbeds);
+window.addEventListener('load', function () {
+    loadInstagramEmbeds();
+    loadTikTokEmbeds();
+
+    // Verificar después de 2 segundos si los embeds de TikTok se cargaron correctamente
+    setTimeout(checkTikTokEmbeds, 2000);
+});
