@@ -7,6 +7,7 @@ const moonIconClass = 'fa-moon';
 const navbar = document.getElementById('navbar');
 const mobileMenu = document.getElementById('mobile-menu');
 const mobileMenuButton = document.getElementById('mobile-menu-button');
+const scrollToTopBtn = document.getElementById('scroll-to-top');
 
 function applyTheme(theme) {
     const isLight = theme === 'light';
@@ -51,7 +52,20 @@ window.onscroll = function () {
     const isScrolled = window.scrollY > 50;
     navbar.classList.toggle('nav-default-bg', !isScrolled);
     navbar.classList.toggle('nav-scrolled-bg', isScrolled);
+
+    if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add('visible');
+    } else {
+        scrollToTopBtn.classList.remove('visible');
+    }
 };
+
+scrollToTopBtn.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
 
 const videoModal = document.getElementById('videoModal');
 const modalTitle = document.getElementById('modalTitle');

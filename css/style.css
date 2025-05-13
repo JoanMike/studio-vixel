@@ -397,17 +397,58 @@ body.light-mode .pulse-button:hover {
     /* Dark Mode Default */
     background-color: #2563eb;
     /* blue-600 */
-    color: white;
     width: 150px;
     height: 150px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem;
-    font-weight: bold;
     margin: 0 auto 2rem auto;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    position: relative;
+    /* Añadido para el efecto de borde difuminado */
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Efecto de borde difuminado mejorado para mayor contraste */
+.about-image-placeholder::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.3), 
+                0 0 25px 8px rgba(255, 255, 255, 0.25);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Efecto hover para acercamiento */
+.about-image-placeholder:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Efecto al pasar el mouse sobre la imagen */
+.about-image-placeholder:hover .profile-image {
+    transform: scale(1.15);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease; /* Suaviza el efecto de zoom */
+}
+
+/* Adaptar el efecto difuminado para modo claro */
+body.light-mode .about-image-placeholder::after {
+    box-shadow: inset 0 0 0 2px rgba(15, 23, 42, 0.15),
+                0 0 25px 8px rgba(59, 130, 246, 0.2);
 }
 
 /* Estilos mejorados para la etiqueta "Popular" */
@@ -980,4 +1021,59 @@ body.light-mode .gradient-text-main {
     background-image: linear-gradient(135deg, #3b82f6, #2563eb, #1e40af);
     /* Gradiente azul para modo claro: blue-500 -> blue-600 -> blue-800 */
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* === BOTÓN DE REGRESO ARRIBA === */
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(37, 99, 235, 0.7); /* blue-600 con transparencia */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.scroll-to-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top-btn:hover {
+    background: rgba(37, 99, 235, 0.9);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+.scroll-to-top-btn:active {
+    transform: translateY(1px);
+}
+
+/* Estilos para modo claro */
+body.light-mode .scroll-to-top-btn {
+    background: rgba(59, 130, 246, 0.7); /* blue-500 con transparencia */
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .scroll-to-top-btn:hover {
+    background: rgba(59, 130, 246, 0.9);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
