@@ -646,7 +646,8 @@ body.dark-mode .tiktok-card {
 .logos-track {
     display: flex;
     width: max-content;
-    animation-duration: 30s;
+    animation-duration: 45s;
+    /* Aumentado de 30s a 45s para más logos */
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
@@ -683,8 +684,29 @@ body.dark-mode .tiktok-card {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 200px;
-    padding: 0 20px;
+    width: 180px;
+    /* Reducido de 200px a 160px para acomodar más logos */
+    padding: 0 15px;
+    /* Reducido de 20px a 15px */
+}
+
+/* Añadimos estilos para las imágenes de logos */
+.logo-image {
+    max-width: 100%;
+    height: auto;
+    transition: filter 0.3s ease;
+}
+
+/* Iluminación para logos SOLO en modo oscuro */
+body:not(.light-mode) .logo-image {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.705));
+}
+
+/* Efecto hover para los logos en modo oscuro */
+body:not(.light-mode) .logo-item:hover .logo-image {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.925));
+    transform: scale(1.05);
+    transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .logo-placeholder {
