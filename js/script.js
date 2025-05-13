@@ -60,7 +60,7 @@ window.onscroll = function () {
     }
 };
 
-scrollToTopBtn.addEventListener('click', function() {
+scrollToTopBtn.addEventListener('click', function () {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
