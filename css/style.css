@@ -71,6 +71,13 @@ h6 {
     /* slate-300 - for descriptions, sub-text */
 }
 
+/* Text shadow for legibility in #about-me section during dark mode */
+body:not(.light-mode) #about-me h2.text-main-color,
+body:not(.light-mode) #about-me p.text-secondary-color {
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.89);
+    /* Sombra oscura sutil */
+}
+
 /* Custom Scrollbar - Dark */
 ::-webkit-scrollbar {
     width: 8px;
@@ -685,6 +692,33 @@ body.dark-mode .tiktok-card {
     padding: 20px 0;
 }
 
+/* Fade effect for logo marquee */
+.logos-scroll::before,
+.logos-scroll::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    /* Adjust width of the fade effect as needed */
+    z-index: 2;
+    /* Ensure fade is above logos */
+    pointer-events: none;
+    /* Allow clicks to pass through */
+}
+
+.logos-scroll::before {
+    left: 0;
+    /* Dark mode gradient: from section background to transparent */
+    background: linear-gradient(to right, #0f172a, rgba(15, 23, 42, 0));
+}
+
+.logos-scroll::after {
+    right: 0;
+    /* Dark mode gradient: from transparent to section background */
+    background: linear-gradient(to left, #0f172a, rgba(15, 23, 42, 0));
+}
+
 .logos-track {
     display: flex;
     width: max-content;
@@ -792,6 +826,15 @@ body.light-mode .logo-placeholder::before {
 body.light-mode .logo-placeholder:hover {
     background-color: #cbd5e1;
     /* slate-300 */
+}
+
+/* Light mode overrides for logo marquee fade */
+body.light-mode .logos-scroll::before {
+    background: linear-gradient(to right, #f8fafc, rgba(248, 250, 252, 0));
+}
+
+body.light-mode .logos-scroll::after {
+    background: linear-gradient(to left, #f8fafc, rgba(248, 250, 252, 0));
 }
 
 /* === LIGHT MODE OVERRIDES === */
@@ -1022,6 +1065,359 @@ body.light-mode .gradient-text-main {
     background-image: linear-gradient(135deg, #3b82f6, #2563eb, #1e40af);
     /* Gradiente azul para modo claro: blue-500 -> blue-600 -> blue-800 */
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove text shadow in light mode if it was applied through a more general rule, ensuring specificity */
+body.light-mode #about-me h2.text-main-color,
+body.light-mode #about-me p.text-secondary-color {
+    text-shadow: none;
+}
+
+/* === GRADIENT ANIMATION FOR CONTACT TITLE (DARK MODE ONLY) === */
+@property --color-1 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: hsl(98 100% 62%);
+    /* Initial: Bright Green/Yellow */
+}
+
+@property --color-2 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: hsl(204 100% 59%);
+    /* Initial: Bright Blue */
+}
+
+@keyframes contact-title-gradient-change {
+    to {
+        --color-1: hsl(210 100% 59%);
+        /* Animated to: Different Blue */
+        --color-2: hsl(310 100% 59%);
+        /* Animated to: Bright Pink/Purple */
+    }
+}
+
+/* Apply effect to the H2 title in the contact section only in dark mode */
+body:not(.light-mode) #contact h2.text-main-color {
+    animation: contact-title-gradient-change 2s linear infinite alternate;
+    background: linear-gradient(to right in oklch, var(--color-1), var(--color-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    /* Fallback for browsers not supporting -webkit-text-fill-color fully */
+}
+
+/* Reset styles for light mode to ensure no gradient animation */
+body.light-mode #contact h2.text-main-color {
+    background-image: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: initial;
+    /* The actual text color for light mode will be handled by existing .text-main-color rules */
+    color: inherit;
+    /* Or let body.light-mode .text-main-color rule apply */
+}
+
+/* Add transition for background color to the contact section */
+#contact {
+    transition: background-color 0.5s ease;
+}
+
+/* === SOCIAL MEDIA ICONS FOR CONTACT SECTION === */
+#contact .sci {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* Center the icons */
+    align-items: center;
+    /* Align items vertically */
+    flex-wrap: wrap;
+    /* Allow wrapping on smaller screens */
+    gap: 30px;
+    /* Adjusted gap for responsiveness */
+    padding-top: 20px;
+    /* Add some space above the icons */
+}
+
+#contact .sci li {
+    list-style: none;
+}
+
+#contact .sci li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    /* Adjusted size for better fit */
+    height: 120px;
+    /* Adjusted size for better fit */
+    font-size: 3em;
+    /* Adjusted icon size */
+    text-decoration: none;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: background 0.25s, box-shadow 0.25s, border 0.25s;
+}
+
+#contact .sci li a i {
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+#contact .sci li a:hover i {
+    transform: scale(1.4) translateZ(40px);
+    /* Adjusted scale and Z */
+    color: #fff;
+}
+
+/* Default (Light Mode) Icon Styles */
+body.light-mode #contact .sci li a {
+    background: #ffffff;
+    /* White background for light mode */
+    color: #333333;
+    /* Dark icon color for light mode */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    /* Softer shadow for light mode */
+}
+
+body.light-mode #contact .sci li a:hover {
+    background: var(--clr);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    /* Slightly stronger shadow on hover */
+    border: 4px solid var(--clr);
+}
+
+/* Dark Mode Icon Styles */
+body:not(.light-mode) #contact .sci li a {
+    background: #1e293b;
+    /* slate-800, darker background for dark mode */
+    color: #e2e8f0;
+    /* slate-200, light icon color for dark mode */
+    box-shadow: 0 25px 35px rgba(0, 0, 0, 0.4);
+    /* Stronger shadow for dark mode */
+}
+
+body:not(.light-mode) #contact .sci li a:hover {
+    background: var(--clr);
+    box-shadow: 0 30px 40px rgba(0, 0, 0, 0.5);
+    /* Even stronger shadow on hover in dark mode */
+    border: 5px solid var(--clr);
+}
+
+/* === RIPPLE BACKGROUND ANIMATION FOR ABOUT ME SECTION === */
+#about-me {
+    position: relative;
+    /* Needed to contain absolute positioned children */
+    overflow: hidden;
+    /* Ensures circles don't overflow the section */
+}
+
+.ripple-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Below the content container which has z-10 */
+    pointer-events: none;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    animation: ripple 15s infinite;
+    /* Default for Dark Mode */
+    background: white;
+    box-shadow: 0px 0px 1px 0px #508fb9;
+    /* Blueish shadow as per example */
+}
+
+.small {
+    width: 200px;
+    height: 200px;
+    left: -100px;
+    bottom: -100px;
+}
+
+.medium {
+    width: 400px;
+    height: 400px;
+    left: -200px;
+    bottom: -200px;
+}
+
+.large {
+    width: 600px;
+    height: 600px;
+    left: -300px;
+    bottom: -300px;
+}
+
+.xlarge {
+    width: 800px;
+    height: 800px;
+    left: -400px;
+    bottom: -400px;
+}
+
+.xxlarge {
+    width: 1000px;
+    height: 1000px;
+    left: -500px;
+    bottom: -500px;
+}
+
+/* Opacities for Dark Mode (as per example) */
+.shade1 {
+    opacity: 0.2;
+}
+
+.shade2 {
+    opacity: 0.5;
+}
+
+.shade3 {
+    opacity: 0.7;
+}
+
+.shade4 {
+    opacity: 0.8;
+}
+
+.shade5 {
+    opacity: 0.9;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0.8);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(0.8);
+    }
+}
+
+/* Light Mode Overrides for Ripple Animation */
+body.light-mode .circle {
+    background: #3b82f6;
+    /* Blue color for light mode (blue-500) */
+    box-shadow: 0px 0px 1px 0px #2563eb;
+    /* Darker blue shadow (blue-600) */
+}
+
+/* Adjusted opacities for Light Mode for better subtlety */
+body.light-mode .shade1 {
+    opacity: 0.05;
+}
+
+body.light-mode .shade2 {
+    opacity: 0.08;
+}
+
+body.light-mode .shade3 {
+    opacity: 0.1;
+}
+
+body.light-mode .shade4 {
+    opacity: 0.12;
+}
+
+body.light-mode .shade5 {
+    opacity: 0.15;
+}
+
+/* === CUBE BACKGROUND ANIMATION FOR SERVICES SECTION === */
+#services {
+    position: relative;
+    /* Needed to contain absolute positioned children */
+    overflow: hidden;
+    /* Ensures cubes don't overflow the section */
+}
+
+.cube-animation-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Below the content container which has z-10 */
+    pointer-events: none;
+    /* Animation should not interfere with mouse events */
+}
+
+.cube {
+    position: absolute;
+    top: 80vh;
+    /* Default initial position */
+    left: 45vw;
+    /* Default initial position */
+    width: 10px;
+    height: 10px;
+    /* Adjusted border color for dark mode - subtle blue */
+    border: solid 1px rgba(59, 130, 246, 0.2);
+    /* e.g., blue-500 with low opacity */
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube-effect 12s ease-in forwards infinite;
+}
+
+/* Alternate border color for every other cube in dark mode */
+#services .cube:nth-child(2n) {
+    border-color: rgba(96, 165, 250, 0.3);
+    /* e.g., blue-400 with slightly higher opacity */
+}
+
+#services .cube:nth-child(2) {
+    animation-delay: 2s;
+    left: 25vw;
+    top: 40vh;
+}
+
+#services .cube:nth-child(3) {
+    animation-delay: 4s;
+    left: 75vw;
+    top: 50vh;
+}
+
+#services .cube:nth-child(4) {
+    animation-delay: 6s;
+    left: 90vw;
+    top: 10vh;
+}
+
+#services .cube:nth-child(5) {
+    animation-delay: 8s;
+    left: 10vw;
+    top: 85vh;
+}
+
+#services .cube:nth-child(6) {
+    animation-delay: 10s;
+    left: 50vw;
+    top: 10vh;
+}
+
+/* Cubes 7-12 will use default positions and 0s animation-delay */
+
+@keyframes cube-effect {
+    from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+    }
 }
 
 /* === BOTÓN DE REGRESO ARRIBA === */

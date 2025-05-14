@@ -173,3 +173,37 @@ window.addEventListener('load', function () {
     // Verificar después de 2 segundos si los embeds de TikTok se cargaron correctamente
     setTimeout(checkTikTokEmbeds, 2000);
 });
+
+// VanillaTilt for social media icons in #contact section
+document.addEventListener('DOMContentLoaded', function () {
+    const contactSciLinks = document.querySelectorAll("#contact .sci li a");
+    if (contactSciLinks.length > 0 && typeof VanillaTilt !== 'undefined') {
+        VanillaTilt.init(contactSciLinks, {
+            max: 30,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.5 // Adjusted glare intensity
+        });
+    }
+
+    // Hover effect for #contact section background
+    const contactSciListItems = document.querySelectorAll('#contact .sci li');
+    const contactSection = document.getElementById('contact');
+
+    if (contactSection && contactSciListItems.length > 0) {
+        contactSciListItems.forEach(element => {
+            element.addEventListener('mouseenter', function (event) {
+                let color = event.currentTarget.style.getPropertyValue('--clr');
+                if (color) {
+                    // Apply the hover color
+                    contactSection.style.backgroundColor = color;
+                }
+            });
+
+            element.addEventListener('mouseleave', function () {
+                // Clear the inline background color, reverting to CSS-defined styles
+                contactSection.style.backgroundColor = '';
+            });
+        });
+    }
+});

@@ -71,6 +71,15 @@
                 <li></li>
                 <li></li>
                 <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
             </ul>
         </div>
         <div class="container mx-auto px-6 text-center relative z-10">
@@ -101,7 +110,14 @@
     </section>
 
     <section id="about-me" class="py-16 md:py-24 section-bg-darker">
-        <div class="container mx-auto px-6">
+        <div class="ripple-background">
+            <div class="circle xxlarge shade1"></div>
+            <div class="circle xlarge shade2"></div>
+            <div class="circle large shade3"></div>
+            <div class="circle medium shade4"></div>
+            <div class="circle small shade5"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
             <h2 class="text-4xl font-bold text-center mb-12 text-main-color" data-aos="fade-up">Un Poco Sobre Mí</h2>
             <div class="max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-delay="100">
                 <div class="about-image-placeholder aos-init aos-animate" data-aos="zoom-in" data-aos-delay="200">
@@ -408,7 +424,27 @@
     </section>
 
     <section id="services" class="py-16 md:py-24 section-bg-dark">
-        <div class="container mx-auto px-6">
+        <div class="cube-animation-background">
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+            <div class="cube"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
             <h2 class="text-4xl font-bold text-center mb-12 text-main-color" data-aos="fade-up">Servicios de Edición
             </h2>
             <p class="text-center text-secondary-color mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
@@ -479,36 +515,25 @@
 
     <section id="contact" class="py-16 md:py-24 section-bg-darker">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 text-main-color" data-aos="fade-up">¡Hablemos de tu
+            <h2 class="text-4xl font-bold text-center mb-12 text-main-color aos-init aos-animate" data-aos="fade-up">
+                ¡Hablemos de tu
                 Proyecto!</h2>
-            <div class="max-w-lg mx-auto content-card-bg p-8 rounded-xl shadow-2xl" data-aos="fade-up"
-                data-aos-delay="100">
-                <form action="#" method="POST">
-                    <div class="mb-6">
-                        <label for="name" class="block mb-2 text-sm font-medium text-secondary-color">Nombre
-                            Completo</label>
-                        <input type="text" id="name" name="name"
-                            class="form-input-bg w-full p-3 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block"
-                            placeholder="Tu Nombre" required>
-                    </div>
-                    <div class="mb-6">
-                        <label for="email" class="block mb-2 text-sm font-medium text-secondary-color">Correo
-                            Electrónico</label>
-                        <input type="email" id="email" name="email"
-                            class="form-input-bg w-full p-3 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block"
-                            placeholder="tu@correo.com" required>
-                    </div>
-                    <div class="mb-6">
-                        <label for="message" class="block mb-2 text-sm font-medium text-secondary-color">Mensaje</label>
-                        <textarea id="message" name="message" rows="4"
-                            class="form-input-bg w-full p-3 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block"
-                            placeholder="Cuéntame sobre tu proyecto..." required></textarea>
-                    </div>
-                    <button type="submit"
-                        class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-3 text-center transition-colors">Enviar
-                        Mensaje</button>
-                </form>
-            </div>
+
+            <!-- Social Media Links -->
+            <ul class="sci">
+                <li style="--clr: #ff0000;" data-aos="fade-up" data-aos-delay="100"><a
+                        href="https://www.youtube.com/@pacomartinez.dev" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-youtube"></i></a></li>
+                <li style="--clr: #c13584;" data-aos="fade-up" data-aos-delay="200"><a
+                        href="https://www.instagram.com/pacomartinez.dev/" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-instagram"></i></a></li>
+                <li style="--clr: #0A66C2;" data-aos="fade-up" data-aos-delay="300"><a
+                        href="https://www.linkedin.com/in/pacomartinez-dev/" target="_blank"
+                        rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a></li>
+                <li style="--clr: #00a783;" data-aos="fade-up" data-aos-delay="400"><a href="https://wa.me/34644739190"
+                        target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a></li>
+            </ul>
+            <!-- End Social Media Links -->
         </div>
     </section>
 
@@ -527,12 +552,12 @@
                 ×
             </button>
             <h3 id="modalTitle" class="text-2xl md:text-3xl font-bold mb-4 modal-text-content">Título del Video</h3>
-            <div class="aspect-w-16 aspect-h-9 mb-4 bg-black rounded-lg">
-                <img id="modalImage" src="https://placehold.co/1280x720/1f2937/FFFFFF?text=Video+Placeholder"
-                    alt="[Video Placeholder]" class="rounded-lg object-contain w-full h-full">
-            </div>
-            <p id="modalDescription" class="modal-text-content text-sm md:text-base">Descripción del video aquí.</p>
+            <div class="aspect-w-16 aspect-h-9 mb-4 bg-black rounded-lg"></div>
+            <img id="modalImage" src="https://placehold.co/1280x720/1f2937/FFFFFF?text=Video+Placeholder"
+                alt="[Video Placeholder]" class="rounded-lg object-contain w-full h-full">
         </div>
+        <p id="modalDescription" class="modal-text-content text-sm md:text-base">Descripción del video aquí.</p>
+    </div>
     </div>
 
     <!-- Botón de regreso arriba -->
@@ -545,6 +570,9 @@
     <script src="js/script.js"></script>
     <script async src="https://www.instagram.com/embed.js"></script>
     <script async src="https://www.tiktok.com/embed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"
+        integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>
