@@ -38,10 +38,30 @@ if (mobileMenuButton && mobileMenu) {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const targetElement = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+
+        // No hacer nada si es solo "#"
+        if (targetId === "#") return;
+
+        const targetElement = document.querySelector(targetId);
+
         if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
+            // Calcular la altura actual de la barra de navegación
+            const navbarHeight = navbar.offsetHeight;
+
+            // Obtener la posición del elemento destino
+            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+
+            // Calcular posición ajustada (restando la altura del navbar + un pequeño espacio)
+            const offsetPosition = targetPosition - navbarHeight - 10;
+
+            // Desplazarse a la posición ajustada
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
         }
+
         if (!mobileMenu.classList.contains('hidden')) {
             mobileMenu.classList.add('hidden');
         }

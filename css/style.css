@@ -8,6 +8,46 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Site logo styling */
+.site-logo {
+    display: flex;
+    align-items: center;
+}
+
+.site-logo .logo-image {
+    height: 80px;
+    /* Doubled from 40px to 80px */
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+    .site-logo .logo-image {
+        height: 64px;
+        /* Doubled from 32px to 64px */
+    }
+}
+
+/* Light mode specific styling for logo */
+body.light-mode .site-logo .logo-image {
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
+}
+
+/* Section scroll margin adjustment to account for fixed navbar */
+section[id] {
+    scroll-margin-top: 100px;
+    /* Valor que excede la altura de la barra de navegación con el logo más grande */
+}
+
+/* Media query for smaller screens with potentially different navbar height */
+@media (max-width: 768px) {
+    section[id] {
+        scroll-margin-top: 80px;
+        /* Valor ajustado para pantallas más pequeñas */
+    }
+}
+
 /* Headings */
 h1,
 h2,
