@@ -1,0 +1,14 @@
+# Ignorar la carpeta node_modules
+node_modules/
+
+# Opcional: Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Opcional: Logs de npm (si se generan)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Opcional: Archivos de entorno (si usas variables de entorno sensibles)
+# .env
