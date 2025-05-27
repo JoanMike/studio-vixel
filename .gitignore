@@ -1,5 +1,6 @@
 # Ignorar la carpeta node_modules
 node_modules/
+.vscode/
 
 # Opcional: Archivos de sistema operativo
 .DS_Store
