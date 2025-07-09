@@ -222,13 +222,12 @@ function loadTikTokEmbeds() {
 ## 📧 Contacto y Redes Sociales
 
 - **Email**: studiovixel.oficial@gmail.com
-- **WhatsApp**: +51 913 429 692
 - **Instagram**: [@studiovixeloficial](https://www.instagram.com/studiovixeloficial/)
 - **LinkedIn**: [franciscomalgar](https://www.linkedin.com/in/franciscomalgar/)
 
 ## 📄 Licencia
 
-© 2025 Francisco Maldonado García. Todos los derechos reservados.
+© 2025 Studio Vixel. Todos los derechos reservados.
 
 ---
 
