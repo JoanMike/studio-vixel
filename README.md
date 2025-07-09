@@ -2,6 +2,8 @@
 
 Portfolio web profesional de Francisco Maldonado García, editor audiovisual especializado en contenido para redes sociales bajo la marca **Studio Vixel**.
 
+![web_vixel_mc](https://github.com/user-attachments/assets/caf1d3fd-650f-4f28-aad3-b264881d8e39)
+
 ## 🌟 Características
 
 ### 🎨 Diseño y UI/UX
